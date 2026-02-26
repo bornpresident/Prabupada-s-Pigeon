@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=400">
+  <title>ISKCON WhatsApp Sender</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Hare Krishna</h1>
+    <p class="subtitle">WhatsApp Message Sender</p>
+  </header>
+
+  <section class="card open-in-tab-row" id="openInTabRow">
+    <p class="hint">Popup closes when you pick a file. Use a tab to upload and see results.</p>
+    <button type="button" id="openInTabBtn" class="btn btn-secondary btn-sm">Open in tab</button>
+  </section>
+
+  <section class="card">
+    <h2>1. Upload contacts (Excel or CSV)</h2>
+    <p class="hint">Columns: <strong>Name</strong>, <strong>Phone Number</strong>, <strong>Gender</strong> (Male/Female). Include country code (e.g. 91). For Excel, save as CSV first.</p>
+    <div class="file-zone" id="fileZone">
+      <input type="file" id="fileInput" accept=".csv,.xlsx,.xls" hidden>
+      <button type="button" id="uploadBtn" class="btn btn-secondary">Choose Excel file</button>
+      <span id="fileName" class="file-name"></span>
+    </div>
+    <div id="previewList" class="preview-list" hidden></div>
+  </section>
+
+  <section class="card">
+    <h2>2. Your message</h2>
+    <p class="hint">First line is auto: &quot;Hare Krishna &lt;Name&gt; Prabhu Ji,&quot; or &quot;... Mata Ji,&quot; based on gender.</p>
+    <textarea id="messageBody" class="message-input" rows="5" placeholder="Type your message here..."></textarea>
+  </section>
+
+  <section class="card">
+    <h2>3. Delay between messages</h2>
+    <p class="hint">Enter seconds (comma or space separated). For each message, a delay is picked randomly from your list. e.g. 3, 3, 5 or 2 4 6 8</p>
+    <input type="text" id="delayInput" class="delay-input" placeholder="e.g. 3, 3, 5 or 2 4 6" value="3, 3, 5">
+  </section>
+
+  <section class="card actions">
+    <button type="button" id="startBtn" class="btn btn-primary" disabled>Start sending</button>
+    <button type="button" id="stopBtn" class="btn btn-danger" hidden>Stop</button>
+    <p id="status" class="status"></p>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
